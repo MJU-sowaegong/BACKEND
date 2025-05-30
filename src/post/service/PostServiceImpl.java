@@ -15,11 +15,12 @@ public class PostServiceImpl implements PostService {
     }
     @Override
     public List<Post> getPosts(Long memberId, PostCategory category) {
+        //구현해주세요
         return List.of();
     }
 
     @Override
     public void write(Post post1) {
-
+        //구현해주세요
     }
 }
