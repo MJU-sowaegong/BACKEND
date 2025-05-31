@@ -13,6 +13,11 @@ public class MemberServiceImpl implements MemberService {
 
     @Override
     public void save(Member member) {
-        //구현해주세요
+        memberRepository.save(member);
+    }
+
+    @Override
+    public Member findById(Long id) {
+        return memberRepository.findById(id);
     }
 }

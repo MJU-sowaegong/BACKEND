@@ -1,6 +1,7 @@
 package post.domain;
 
 public enum PostCategory {
-    FREE
+    // post.domain.PostCategory
+        FREE, QUESTION, QNA, NOTICE
 
 }
