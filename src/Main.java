@@ -1,8 +1,7 @@
 import career.controller.CareerController;
 import career.domain.Career;
 import career.repository.CareerRepository;
-import career.service.CareerService;
-import career.service.CareerServiceImpl;
+import career.service.*;
 import member.controller.MemberController;
 import member.domain.Member;
 import member.domain.Role;
@@ -26,10 +25,20 @@ public class Main {
         PostRepository postRepo = PostRepository.getInstance();
         CareerRepository careerRepo = CareerRepository.getInstance();
 
+        //전략 페턴 적용
+        // 전략 리스트 생성
+        List<CareerApplyStrategy> strategies = List.of(
+                new SuccessApplyStrategy(careerRepo),
+                new FailApplyStrategy()
+        );
+        // 전략 팩토리 생성
+        CareerApplyStrategyFactory strategyFactory = new CareerApplyStrategyFactory(strategies);
+
+
         // 서비스 생성
         MemberService memberService = new MemberServiceImpl(memberRepo);
         PostService postService = new PostServiceImpl(postRepo, memberRepo);
-        CareerService careerService = new CareerServiceImpl(careerRepo);
+        CareerService careerService = new CareerServiceImpl(careerRepo, strategyFactory);
 
         // 컨트롤러 생성
         MemberController memberController = new MemberController(memberService);
