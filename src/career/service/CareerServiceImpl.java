@@ -1,5 +1,6 @@
 package career.service;// career.service.CareerServiceImpl
 import career.domain.Career;
+import career.domain.CareerFactory;
 import career.repository.CareerRepository;
 import member.domain.Member;
 import member.domain.Role;
@@ -34,12 +35,8 @@ public class CareerServiceImpl implements CareerService {
 
         System.out.println("정상 요청입니다.");
 
-        Career career = Career.builder()
-                .id(id)
-                .member(member)
-                .content(content)
-                .professor(professor)
-                .build();
+        Career career = CareerFactory.createCareer(member, professor, content);
+
         careerRepository.save(career);
         System.out.println("[성공] 진로 상담 신청이 완료되었습니다. 신청자: " + member.getName() + ", 교수님: " + professor.getName());
 

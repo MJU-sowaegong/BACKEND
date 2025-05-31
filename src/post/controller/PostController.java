@@ -16,15 +16,9 @@ public class PostController {
     }
 
     public void writePost(Long id, Member member, PostCategory category, String title, String content) {
-        Post post = Post.builder()
-                .id(id)
-                .member(member)
-                .category(category)
-                .title(title)
-                .content(content)
-                .build();
 
-        postService.write(post);
+
+        postService.write(id, member, category, title, content);
     }
 
     public List<Post> getPosts(Long memberId, PostCategory category) {

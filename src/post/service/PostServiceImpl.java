@@ -4,6 +4,7 @@ import member.domain.Role;
 import member.repository.MemberRepository;
 import post.domain.Post;
 import post.domain.PostCategory;
+import post.domain.PostFactory;
 import post.repository.PostRepository;
 
 import java.util.Collections;
@@ -20,7 +21,8 @@ public class PostServiceImpl implements PostService {
 
 
     @Override
-    public void write(Post post) {
+    public void write(Long id, Member member, PostCategory category, String title, String content) {
+        Post post = PostFactory.createPost(id, member, category, title, content);
         postRepository.save(post);
     }
 
@@ -46,4 +48,6 @@ public class PostServiceImpl implements PostService {
 
         return postRepository.findAllByCategory(category);
     }
+
+
 }
