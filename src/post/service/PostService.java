@@ -6,7 +6,6 @@ import post.domain.PostCategory;
 import java.util.List;
 
 public interface PostService {
+    void write(Post post);
     List<Post> getPosts(Long memberId, PostCategory category);
-
-    void write(Post post1);
 }
