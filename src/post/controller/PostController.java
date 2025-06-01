@@ -16,8 +16,6 @@ public class PostController {
     }
 
     public void writePost(Long id, Member member, PostCategory category, String title, String content) {
-
-
         postService.write(id, member, category, title, content);
     }
 

@@ -28,8 +28,8 @@ public class Main {
         //전략 페턴 적용
         // 전략 리스트 생성
         List<CareerApplyStrategy> strategies = List.of(
-                new SuccessApplyStrategy(careerRepo),
-                new FailApplyStrategy()
+                new SuccessApplyStrategy(careerRepo), //실패 했을 경우의 전략
+                new FailApplyStrategy() //성공 했을 경우의 전략
         );
         // 전략 팩토리 생성
         CareerApplyStrategyFactory strategyFactory = new CareerApplyStrategyFactory(strategies);
@@ -60,74 +60,63 @@ public class Main {
 //   ----------------------------------------- Controller로 요청 받기 -----------------------------------------------
         // 기능 1. 게시글 조회 (멤버 1의 FREE 게시글)
         System.out.println("-------------------------기능 1. 카테고리별 게시글 조회------------------------------");
-        System.out.println();
-        System.out.println("----------------------------------------------------------------");
-        System.out.println("\n[게시글 조회] 멤버 1 (오창민)의 QNA 게시글 조회");
+        System.out.println("[게시글 조회] 멤버 1 (오창민)의 QNA 게시글 조회");
         List<Post> postsQna = postController.getPosts(1L, PostCategory.QNA);
-        System.out.println("\n[게시글 조회 결과] ");
+        System.out.println("[게시글 조회 결과] ");
         for (Post post : postsQna) {
             post.getInformation();
         }
-        System.out.println();
         System.out.println("----------------------------------------------------------------");
-        System.out.println("\n[게시글 조회] 멤버 1 (오창민)의 FREE 게시글 조회");
+        System.out.println("[게시글 조회] 멤버 1 (오창민)의 FREE 게시글 조회");
         List<Post> postsfree = postController.getPosts(1L, PostCategory.FREE);
-        System.out.println("\n[게시글 조회 결과] ");
+        System.out.println("[게시글 조회 결과] ");
         for (Post post : postsfree) {
             post.getInformation();
         }
-        System.out.println();
         System.out.println("----------------------------------------------------------------");
-        System.out.println("\n[게시글 조회] 멤버 2 (고은)의 NOTICE 게시글 조회");
+        System.out.println("[게시글 조회] 멤버 2 (고은)의 NOTICE 게시글 조회");
         List<Post> posts2 = postController.getPosts(2L, PostCategory.NOTICE);
-        System.out.println("\n[게시글 조회 결과] ");
+        System.out.println("[게시글 조회 결과] ");
         for (Post post : posts2) {
             post.getInformation();
         }
-        System.out.println();
         System.out.println("----------------------------------------------------------------");
-        System.out.println("\n[게시글 조회] 멤버 3 (윤서)의 FREE 게시글 조회");
+        System.out.println("[게시글 조회] 멤버 3 (윤서)의 FREE 게시글 조회");
         List<Post> posts3 = postController.getPosts(3L, PostCategory.FREE);
-        System.out.println("\n[게시글 조회 결과] ");
+        System.out.println("[게시글 조회 결과] ");
         for (Post post : posts3) {
             post.getInformation();
         }
-        System.out.println();
         System.out.println("----------------------------------------------------------------");
-        System.out.println("\n[게시글 조회] 멤버 3 (윤서)의 QNA 게시글 조회");
+        System.out.println("[게시글 조회] 멤버 3 (윤서)의 QNA 게시글 조회");
         List<Post> postList = postController.getPosts(3L, PostCategory.QNA);
-        System.out.println("\n[게시글 조회 결과] ");
-        for (Post post : posts3) {
+        System.out.println("[게시글 조회 결과] ");
+        for (Post post : postList) {
             post.getInformation();
         }
-        System.out.println();
         System.out.println("----------------------------------------------------------------");
-        System.out.println("\n[게시글 조회] 멤버 4 (가희)의 FREE 게시글 조회");
+        System.out.println("[게시글 조회] 멤버 4 (가희)의 FREE 게시글 조회");
         List<Post> posts4 = postController.getPosts(4L, PostCategory.FREE);
-        System.out.println("\n[게시글 조회 결과] ");
+        System.out.println("[게시글 조회 결과] ");
         for (Post post : posts4) {
             post.getInformation();
         }
-        System.out.println();
         System.out.println("----------------------------------------------------------------");
-        System.out.println("\n[게시글 조회] 멤버 5 (세민)의 QNA 게시글 조회");
+        System.out.println("[게시글 조회] 멤버 5 (세민)의 QNA 게시글 조회");
         List<Post> posts5 = postController.getPosts(5L, PostCategory.QNA);
-        System.out.println("\n[게시글 조회 결과] ");
+        System.out.println("[게시글 조회 결과] ");
         for (Post post : posts5) {
             post.getInformation();
         }
-        System.out.println();
         System.out.println("----------------------------------------------------------------");
-        System.out.println("\n[게시글 조회] 멤버 5 (세민)의 NOTICE 게시글 조회 시도");
+        System.out.println("[게시글 조회] 멤버 5 (세민)의 NOTICE 게시글 조회 시도");
         List<Post> posts6 = postController.getPosts(5L, PostCategory.NOTICE);
-        System.out.println("\n[게시글 조회 결과] ");
+        System.out.println("[게시글 조회 결과] ");
         for (Post post : posts6) {
             post.getInformation();
         }
-        System.out.println();
         System.out.println("----------------------------------------------------------------");
 
-        System.out.println();
         System.out.println();
         System.out.println("------------------------------------기능 2. 진로 상담 신청--------------------------------------------");
         System.out.println();
