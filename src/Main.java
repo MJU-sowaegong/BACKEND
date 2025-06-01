@@ -28,8 +28,8 @@ public class Main {
         //전략 페턴 적용
         // 전략 리스트 생성
         List<CareerApplyStrategy> strategies = List.of(
-                new SuccessApplyStrategy(careerRepo), //실패 했을 경우의 전략
-                new FailApplyStrategy() //성공 했을 경우의 전략
+                new SuccessApplyStrategy(careerRepo), //성공 했을 경우의 전략
+                new FailApplyStrategy() //실패 했을 경우의 전략
         );
         // 전략 팩토리 생성
         CareerApplyStrategyFactory strategyFactory = new CareerApplyStrategyFactory(strategies);
